@@ -1,0 +1,22 @@
+CREATE DATABASE EmployeeManagementDB;
+GO
+
+USE EmployeeManagementDB;
+GO
+
+CREATE TABLE Departments (
+    DepartmentId INT IDENTITY PRIMARY KEY,
+    DepartmentName NVARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Employees (
+    EmployeeId INT IDENTITY PRIMARY KEY,
+    FirstName NVARCHAR(100) NOT NULL,
+    LastName NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(150) NOT NULL UNIQUE,
+    Salary DECIMAL(10,2) NOT NULL,
+    DepartmentId INT NOT NULL,
+    CONSTRAINT FK_Employees_Departments
+        FOREIGN KEY (DepartmentId)
+        REFERENCES Departments(DepartmentId)
+);

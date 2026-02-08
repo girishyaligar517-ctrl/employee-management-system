@@ -1,0 +1,13 @@
+USE EmployeeManagementDB;
+GO
+
+INSERT INTO Departments (DepartmentName)
+VALUES
+('IT'),
+('HR'),
+('Finance');
+
+INSERT INTO Employees (FirstName, LastName, Email, Salary, DepartmentId)
+VALUES
+('Girish', 'Yaligar', 'girish@test.com', 50000, 1),
+('Jane', 'Smith', 'jane@test.com', 60000, 2);
