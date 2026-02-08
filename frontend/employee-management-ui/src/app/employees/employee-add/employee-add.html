@@ -1,0 +1,79 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Add Employee</h2>
+
+  <form [formGroup]="employeeForm" (ngSubmit)="submit()">
+
+    <div class="mb-3">
+      <label class="form-label">First Name</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="firstName"
+      />
+      <small class="text-danger"
+        *ngIf="employeeForm.controls.firstName.touched && employeeForm.controls.firstName.invalid">
+        First Name is required
+      </small>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Last Name</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="lastName"
+      />
+      <small class="text-danger"
+        *ngIf="employeeForm.controls.lastName.touched && employeeForm.controls.lastName.invalid">
+        Last Name is required
+      </small>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        formControlName="email"
+      />
+      <small class="text-danger"
+        *ngIf="employeeForm.controls.email.touched && employeeForm.controls.email.invalid">
+        Valid Email is required
+      </small>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Salary</label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="salary"
+      />
+      <small class="text-danger"
+        *ngIf="employeeForm.controls.salary.touched && employeeForm.controls.salary.invalid">
+        Salary must be greater than 0
+      </small>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Department Id</label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="departmentId"
+      />
+      <small class="text-danger"
+        *ngIf="employeeForm.controls.departmentId.touched && employeeForm.controls.departmentId.invalid">
+        Department is required
+      </small>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="employeeForm.invalid">
+      Save
+    </button>
+
+  </form>
+</div>

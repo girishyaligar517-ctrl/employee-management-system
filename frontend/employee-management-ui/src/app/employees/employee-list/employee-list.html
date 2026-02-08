@@ -1,0 +1,43 @@
+<div class="container mt-4">
+  <h2 class="mb-3">Employees List</h2>
+
+  <div class="mb-3 text-end">
+    <button class="btn btn-primary" routerLink="/add">
+      Add Employee
+    </button>
+  </div>
+
+  <table class="table table-bordered table-hover">
+    <thead class="table-light">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>Department</th>
+        <th style="width: 150px;">Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let e of employees">
+        <td>{{ e.fullName }}</td>
+        <td>{{ e.email }}</td>
+        <td>{{ e.salary }}</td>
+        <td>{{ e.departmentName }}</td>
+        <td>
+          <button
+            class="btn btn-sm btn-warning me-2"
+            [routerLink]="['/edit', e.employeeId]">
+            Edit
+          </button>
+
+          <button
+            class="btn btn-sm btn-danger"
+            (click)="delete(e.employeeId)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
